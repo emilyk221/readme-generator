@@ -1,12 +1,12 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  let badge = "";
-  if (license === "CC0") {
-    badge = `[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)`;
-    return badge;
+  if (!license) {
+    return "";
   }
-  else if (license === "MIT") {
+
+  let badge = "";
+  if (license === "MIT") {
     badge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
     return badge;
   }
@@ -19,18 +19,71 @@ function renderLicenseBadge(license) {
     return badge;
   }
   else {
-    badge = "";
-    return badge;
+    return "";
   }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (!license) {
+    return "";
+  }
+  
+  if (license === "MIT") {
+    return `
+    [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
+    `;
+  }
+  else if (license === "Apache") {
+    return `
+    [https://opensource.org/licenses/Apache-2.0](https://opensource.org/licenses/Apache-2.0
+    `;
+  }
+  else if (license === "GPL") {
+    return `
+    [https://www.gnu.org/licenses/gpl-3.0](https://www.gnu.org/licenses/gpl-3.0)
+    `;
+  }
+  else {
+    return "";
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (!license) {
+    return "";
+  }
+
+  if (license === "MIT") {
+    return `
+    Licensed under the ${license} license.
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    For more information, visit ${renderLicenseLink(license)}
+    `;
+  }
+  else if (license === "Apache") {
+    return `
+    Licensed under the ${license} license.
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+    ${renderLicenseLink(license)}
+    `;
+  }
+  else if (license === "GPL") {
+    return `
+    Licensed under the ${license} license.
+    This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    For more information, visit ${renderLicenseLink(license)}
+    `;
+  }
+  else {
+    return "";
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -38,17 +91,16 @@ function generateMarkdown(data) {
   # ${data.title}
   ${renderLicenseBadge(data.license)}
 
+  ## Description
+  ${data.description}
+
   ## Table of Contents
-  * [Description](#description)
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
-  * [Questions](#questions)
   * [Contributing](#contributing)
   * [Tests](tests)
-  
-  ## Description
-  ${data.description}
+  * [Questions](#questions)
 
   ## Installation
   ${data.installation}
@@ -57,16 +109,18 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ## License
-
-
-  ## Questions
-  
+  Copyright ${new Date().getFullYear()} by ${data.username}
+  ${renderLicenseSection(data.license)}
 
   ## Contributing
   ${data.contribution}
 
   ## Tests
   ${data.test}
+
+  ## Questions
+  Please visit my GitHub profile [here](https://github.com/${data.username}).
+  You can email me at [${data.email}](${data.email}) with questions regarding this project.
   `;
 }
 
