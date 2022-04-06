@@ -51,7 +51,7 @@ const questions = [
     type: "list",
     name: "license",
     message: "Choose a license for your project. (Select one)",
-    choices: ["MIT", "Apache", "GPL"]
+    choices: ["MIT", "Apache", "GPL", "none (public domain)"]
   },
   {
     type: "input",
