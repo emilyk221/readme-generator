@@ -3,7 +3,7 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Description
-  Readme-generator is a command line application that prompts the user to answer questions about their project and then generates a high-quality README file. The user inputs the title of their project, their GitHub username, and their email address. This information is used to populate the title of the file, and how to contact the author of the project under a questions section. The user can also select a license from a list, which allows a corresponding badge to be displayed under the title in the file as well as appropriate license information with a link to be displayed in the license section of the document. Finally, the user can input a description, installation instructions, usage information, contribution guidelines, and testing instructions. The corresponding sections will populate with this information directly from the user. The generated README file will also have a table of contents with links to the different sections.
+  Readme-generator is a command line application that prompts the user (using Inquirer) to answer questions about their project and then generates a high-quality README file. The user inputs the title of their project, their GitHub username, and their email address. This information is used to populate the title of the file, and how to contact the author of the project under a questions section. The user can also select a license from a list, which allows a corresponding badge to be displayed under the title in the file as well as appropriate license information with a link to be displayed in the license section of the document. Finally, the user can input a description, installation instructions, usage information, contribution guidelines, and testing instructions. The corresponding sections will populate with this information directly from the user. The generated README file will also have a table of contents with links to the different sections.
 
   ## Table of Contents
   * [Installation](#installation)
@@ -18,6 +18,8 @@
 
   ## Usage
   You can use this application to generate a high-quality README file for your project.
+  
+  You can view a video of this application in action [here](https://drive.google.com/file/d/1MRQafkmxZAvlzgixJWNcP0krkzc-2tOI/view)
 
   ## License
   
